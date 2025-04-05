@@ -26,25 +26,17 @@
         <div class="heart"></div>
       </div>
     </div>
-    <audio id="bgMusic" src="music.mp3" autoplay></audio>
+    <audio id="bgMusic" src="little-things.mp3" autoplay></audio>
     <script>
-      const envelope = document.querySelector(".envelope-wrapper");
-      envelope.addEventListener("click", () => {
-        envelope.classList.toggle("flap");
-      });
-
       const music = document.getElementById("bgMusic");
 
       function playMusic() {
         music.play();
       }
-
-      // Optional: Unmute and play automatically (some browsers block autoplay with sound)
-      window.addEventListener("load", () => {
-        music.play().catch(() => {
-          // Some browsers require user interaction
-          console.log("Autoplay blocked. User interaction is needed.");
-        });
+      const envelope = document.querySelector(".envelope-wrapper");
+      envelope.addEventListener("click", () => {
+        envelope.classList.toggle("flap");
+        playMusic();
       });
     </script>
   </body>
